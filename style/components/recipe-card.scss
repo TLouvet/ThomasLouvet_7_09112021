@@ -1,0 +1,40 @@
+.recipe{
+    &__card{
+        border-radius: 10px;
+        height: 350px;
+        margin-bottom: 35px;
+        &__image{
+            border-radius: 10px 10px 0 0;
+            height: 175px;
+            width: 100%;
+            background-color: $imagePlaceHolder;
+        }
+        &__body{
+            background-color: $cardBackground;
+            border-radius: 0 0 10px 10px;
+            padding: 15px;
+            padding-bottom: 0;
+            height: 175px;
+        }
+        &--container{
+            height: 65%;
+        }
+    }
+    &__description{
+        font-size: 12px;
+        height: 100%;
+        overflow-y: hidden;
+        line-height: initial;
+    }
+    &__name{
+        width: 70%;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+    &__ingredient-list {
+        list-style-type: none;
+        padding: 0;
+        font-size: 0.7rem;
+    }
+}

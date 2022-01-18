@@ -1,7 +1,7 @@
 const filterNames = [
-	new FilterButton('Ingrédients', 'bg-primary', 'ingredients'),
-	new FilterButton('Appareil', 'bg-success', 'appareils'),
-	new FilterButton('Ustensiles', 'bg-danger', 'ustensiles'),
+	new FilterButton('Ingrédients', 'blue', 'ingredients', 'ingredients'),
+	new FilterButton('Appareil', 'green', 'appareils', 'appliance'),
+	new FilterButton('Ustensiles', 'red', 'ustensiles', 'ustensils'),
 ];
 
 /**
