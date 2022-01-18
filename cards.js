@@ -1,28 +1,61 @@
-for (recipe of recipes){
+function displayCards(recipes) {
+	document.getElementById('cards').innerHTML = '';
+	if (recipes.length == 0) {
+		displayNoResultFound();
+	} else {
+		recipes.forEach((recipe) => {
+			displayOneCard(recipe);
+		});
+	}
+}
 
-    let ing = ""
-    
-    recipe.ingredients.forEach(ingredient => {
-        ing += `
-            <li><span class="bold close">${ingredient.ingredient}</span> ${ingredient.quantity!=undefined ?`: ${ingredient.quantity}`:""} ${ingredient.unit!=undefined?ingredient.unit:""}</li>
-        `      
-    })
+function displayNoResultFound() {
+	document.getElementById(
+		'cards'
+	).innerHTML = `<p class='text-center'>Aucune recette ne correspond à votre critère… vous pouvez
+    chercher « tarte aux pommes », « poisson », etc.</p>`;
+}
 
-    document.getElementById("cards").innerHTML += `
-    <div class="recipe-card">
-        <div class=recipe-img></div> 
-        <div class=recipe-card-body>
-            <div class="d-flex justify-content-between mb-2">
-                <span class="bold recipe-name">${recipe.name}</span>
-                <span class="bold"><i class="far fa-clock"></i> ${recipe.time}min</span>
-            </div>
+function getIngredients(recipe) {
+	let list = '';
+	recipe.ingredients.forEach((ingredient) => {
+		list += `
+        <li>
+            <span class="bold close">${ingredient.ingredient}</span> 
+            ${
+													ingredient.quantity != undefined ? `: ${ingredient.quantity}` : ''
+												}
+            ${ingredient.unit != undefined ? ingredient.unit : ''}
+        </li>
+        `;
+	});
+	return list;
+}
 
-            <div class="d-flex justify-content-between card-container">
-                <span> <ul class="ingredient-list"> ${ing} </ul> </span>
+function displayOneCard(recipe) {
+	const ingredientList = getIngredients(recipe);
 
-                <span class="col-6 recipe-description bold"> ${recipe.description} </span>
+	document.getElementById('cards').innerHTML += `
+        <div class="recipe-card col-md-6 col-lg-4">
+            <div class=recipe-img></div> 
+            <div class=recipe-card-body>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="bold recipe-name">${recipe.name}</span>
+                    <span class="bold"><i class="far fa-clock"></i> 
+                        ${recipe.time}min
+                    </span>
+                </div>
+
+                <div class="d-flex justify-content-between card-container">
+                    <span> <ul class="ingredient-list"> ${ingredientList} </ul> </span>
+
+                    <span class="col-6 recipe-description bold">
+                        ${recipe.description.substr(0, 160)}... 
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-    `
+    `;
 }
+
+displayCards(recipes);

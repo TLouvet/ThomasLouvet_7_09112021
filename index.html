@@ -14,40 +14,27 @@
 
     <body>
         <div class="container">
-
-        
             <header class="text-center mb-3">LOGO
                <h1 class="main-title">Les petits plats</h1> 
             </header>
             <main >
                 <!-- barre recherche-->
-
                 <div class="input-group row">
-                    <input type="text" class='form-control-lg' placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"/>
+                    <input type="text" id="searchbar" class='form-control-lg' placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"/>
                 </div>
 
-                <div class="row">
-                    <div class=" bg-primary mt-4 me-3 white filter d-flex justify-content-between">
-                       <span> Ingrédients </span>
-                       <span><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class=" bg-success mt-4 me-3 white filter d-flex justify-content-between">
-                        <span>Appareil</span>
-                        <span><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                <section id="filter-section" class="row mt-4">
+                   <!--filter btns-->
+                </section>
 
-                    <div class="bg-danger mt-4 white filter d-flex justify-content-between">
-                        <span>Ustensiles</span>
-                        <span><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                </div>
-
-                <section id="cards" class="d-flex flex-wrap row">
+                <section id="cards" class="row gx-md-3 gx-lg-5" >
                     <!--insertion en JS des cartes-->
                 </section>
 
             </main>
         </div>
-        
     </body>
+    <script src='./class/FilterButton.js'></script>
+    <script src="./filters.js"></script>
+    <script src='./search.js'></script>
 </html>
