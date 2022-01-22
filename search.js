@@ -1,60 +1,38 @@
 /**
- * Functionnal programming version
- * Main search bar component -- looks in recipe title/description/ingredients
- * Display cards accordingly
- */
-/*document.getElementById('searchbar').addEventListener('input', (e) => {
-	if (e.target.value.length >= 3) {
-		const valueUpper = e.target.value.toUpperCase();
-		const filteredRecipes = recipes.filter(
-			(recipe) =>
-				recipe.name.toUpperCase().includes(valueUpper) ||
-				recipe.description.toUpperCase().includes(valueUpper) ||
-				recipe.ingredients.forEach((ingredient) => {
-					ingredient.ingredient.toUpperCase().includes(valueUpper);
-				})
-		);
-
-		displayCards(filteredRecipes);
-	} else {
-		displayCards(recipes);
-	}
-});*/
-
-/**
- * Native Loop Version - push on new branch -- seems faster
+ * Native Loop Version -- seems faster
  */
 document.getElementById('searchbar').addEventListener('input', (e) => {
+	document.getElementById('cards').innerHTML = '';
+
 	if (e.target.value.length >= 3) {
 		const valueUpper = e.target.value.toUpperCase();
-		document.getElementById('cards').innerHTML = '';
-
-		//The problem of doing this without any stock is that no trace is kept
-		filteredResearches = [];
-		for (const recipe of recipes) {
-			if (
-				recipe.name.toUpperCase().includes(valueUpper) ||
-				recipe.description.toUpperCase().includes(valueUpper)
-			) {
-				filteredResearches.push(recipe);
+		// Get first filter
+		const filteredResearches = Search.prototype.filterFromSearchBar(valueUpper);
+		// Filter by Tag
+		let remainingResearches = [];
+		if (gTags.length > 0){
+			remainingResearches = Search.prototype.filterByTag(filteredResearches);
+		}
+		else {
+			remainingResearches = filteredResearches;
+			for (const recipe of remainingResearches){
 				displayOneCard(recipe);
 			}
-
-			for (const ingredient of recipe.ingredients) {
-				if (ingredient.ingredient.includes(valueUpper)) {
-					filteredResearches.push(recipe);
-					displayOneCard(recipe);
-				}
-			}
 		}
-
+		Search.prototype.updateFilterAvailableTags(remainingResearches);
+		// No valid answers
 		if (document.getElementById('cards').innerHTML == '') {
 			displayCards([]);
 		}
-
-		//Maintenant il faut éditer les ingrédients disponibles // éditer les appareils disponibles // Ustensils disponibles
-		//If filtered resarch is empty
-	} else {
-		displayCards(recipes);
+	} 
+	else {
+		if (gTags.length > 0){
+			const filteredRecipes = Search.prototype.filterByTag(gRecipes);
+			Search.prototype.updateFilterAvailableTags(filteredRecipes);
+		}
+		else{
+			reinitFilterButtons();
+			displayCards(gRecipes);
+		}
 	}
 });

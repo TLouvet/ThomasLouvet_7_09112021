@@ -8,22 +8,27 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/e6725f03e5.js" crossorigin="anonymous"></script>
-        <script src="./recipes.js" ></script>
-        <script src="./cards.js" defer></script>
     </head>
 
     <body>
         <div class="container">
-            <header role="banner" class="text-center mb-3">LOGO
+            <header role="banner" class="text-center mb-3">
+               <img src="./assets/logo.png" alt="logo Les petits plats" />
                <h1 class="main-title">Les petits plats</h1> 
             </header>
             <main role="main">
                 <!-- barre recherche-->
-                <section class="input-group row">
-                    <input type="text" id="searchbar" class='form-control-lg' aria-description="Barre de recherche principale" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"/>
+                <section class="input-group">
+                    <label for="searchbar" aria-label="Barre de recherche"></label>
+                    <input type="text" id="searchbar" class='form-control input--searchbar' aria-description="Barre de recherche principale" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"/>
+                    <i class="fas fa-search fa-lg search-icon"></i>
+                </section>
+                
+                <section id="chosen-tags" class="d-flex">
+                    <!--Tags-->
                 </section>
 
-                <section id="filter-section" class="row mt-4">
+                <section id="filter-section" class="d-flex flex-wrap mt-4">
                    <!--filter btns-->
                 </section>
 
@@ -33,8 +38,15 @@
 
             </main>
         </div>
-    </body>
-    <script src='./class/FilterButton.js'></script>
-    <script src="./filters.js"></script>
+    </body>   
+    <script src= './class/FilterButton.js'></script> 
+    <script src= "./class/Tags.js"></script>
+    <script src= "./class/Recipe.js"></script>
+    <script src= './class/Search.js'></script>
+    <script src= "routes-simulation.js"></script>
+    <script src= "./filters.js"></script>
+    <script src= "./cards.js"></script>
+    <script src= "./init.js"></script>
+    <script src= "./utils.js"></script>
     <script src='./search.js'></script>
 </html>

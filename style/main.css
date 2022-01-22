@@ -10,6 +10,19 @@
   font-weight: 700;
 }
 
+.clickable {
+  cursor: pointer;
+}
+.clickable--blue:hover {
+  background-color: #1973f6;
+}
+.clickable--green:hover {
+  background-color: #54d498;
+}
+.clickable--red:hover {
+  background-color: #eb4f3d;
+}
+
 .main-title {
   color: #D04F4F;
   font-weight: 600;
@@ -32,10 +45,14 @@
 .input::placeholder {
   color: #d9d9d9;
 }
+.input--searchbar {
+  background-color: #E7E7E7 !important;
+  height: 70px;
+}
 
 .recipe__card {
   border-radius: 10px;
-  height: 350px;
+  height: 365px;
   margin-bottom: 35px;
 }
 .recipe__card__image {
@@ -49,7 +66,7 @@
   border-radius: 0 0 10px 10px;
   padding: 15px;
   padding-bottom: 0;
-  height: 175px;
+  height: 190px;
 }
 .recipe__card--container {
   height: 65%;
@@ -85,10 +102,52 @@
   background-color: #ED6454;
 }
 .btn__filter {
-  padding: 20px 25px;
+  padding: 20px 15px;
   text-align: center;
   margin-bottom: 30px;
   border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+.btn--no-expand {
+  max-height: 65px;
+}
+
+.no-style-list {
+  list-style-type: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  z-index: 50;
+}
+
+.tag__container {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+.tag__quit {
+  border: none;
+  color: white;
+}
+.tag--blue {
+  background-color: #3282F7;
+}
+.tag--red {
+  background-color: #ED6454;
+}
+.tag--green {
+  background-color: #68D9A4;
+}
+.tag__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=main.css.map */

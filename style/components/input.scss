@@ -14,4 +14,8 @@
     &::placeholder{
         color: darken(white,15);
     }
+    &--searchbar{
+        background-color: $cardBackground!important;
+        height: 70px;
+    }
 }

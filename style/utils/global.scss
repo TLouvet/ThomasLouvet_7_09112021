@@ -9,3 +9,16 @@
 .bold{
     font-weight: 700;
 }
+
+.clickable{
+	cursor: pointer;
+	&--blue:hover {
+		background-color: darken($blue, 5);
+	}
+	&--green:hover {
+		background-color: darken($green, 5);
+	}
+	&--red:hover {
+		background-color: darken($red, 5);
+	}
+}
