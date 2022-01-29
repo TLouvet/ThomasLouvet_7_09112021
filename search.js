@@ -2,7 +2,7 @@
 let is3Char = false;
 
 /**
- * Native Loop Version -- seems faster
+ * Search algorithm
  */
 document.getElementById('searchbar').addEventListener('input', (e) => {
 	
