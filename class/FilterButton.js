@@ -75,12 +75,17 @@ class FilterButton {
 		return list;
 	}
 
+  /**
+   * Filter input event
+   * Either it's at least 3 chars long and a search is made in the related tags
+   * Either it's less than 3 chars long and every available tag is displayed
+   */
 	onSearch(){
 		const input = document.getElementById(`${this.id}-input`);
 		input.focus();
 		input.addEventListener('input', (e) => {
 			if (e.target.value.length >= 3){
-				// Il faut regénérer la liste
+				// regenerate list
 				let list = '';
 				for (const element of this.referencesInfo){
 					if (element.toUpperCase().includes(e.target.value.toUpperCase())){
@@ -92,7 +97,6 @@ class FilterButton {
 						`;
 					}
 				}
-				// Et appliquer
 				document.getElementById(`${this.id}-list`).innerHTML = list;
 			}
 			else{

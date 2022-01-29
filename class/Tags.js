@@ -35,6 +35,12 @@ class Tags {
         return false;
     }
 
+    /**
+     * Show Tag on screen
+     * @param {string} tagType 
+     * @param {string} tagName 
+     * @param {string} color 
+     */
     displayTag(tagType, tagName, color){
         const filter = document.getElementById(`${tagType}-tags`);
         const newTag = document.createElement("div");
@@ -42,7 +48,6 @@ class Tags {
         newTag.setAttribute('class', `tag__container tag--${color}` )
         newTag.innerHTML = `<span>${tagName}<span> <button class="tag__quit tag--${color} " onclick="Tags.prototype.removeOneTag('${tagType}', '${tagName}')" > <i class="far fa-times-circle"></i> </button> `;
         filter.insertBefore(newTag, filter.firstChild);
-
     }
 
     /**
