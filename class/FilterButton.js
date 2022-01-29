@@ -15,7 +15,6 @@ class FilterButton {
 
 	/**
 	 * Original display of a button*
-   * MISSING EXPANDED VERSION 
 	 */
 	create() {
 		document.getElementById('filter-section').innerHTML += `

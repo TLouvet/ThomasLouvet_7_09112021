@@ -1,5 +1,5 @@
 /**
- * Native Loop Version -- seems faster
+ * Main searchbar update
  */
 document.getElementById('searchbar').addEventListener('input', (e) => {
 	document.getElementById('cards').innerHTML = '';

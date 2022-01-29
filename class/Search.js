@@ -6,22 +6,22 @@ class Search {
    * @returns 
    */
   filterFromSearchBar(value) {
-      const filteredResearches = [];
-      for (const recipe of gRecipes) {
-		if (
-			recipe.name.toUpperCase().includes(value) ||
-			recipe.description.toUpperCase().includes(value)
-		) {
-			filteredResearches.push(recipe);
-		}
+    const filteredResearches = [];   
+    for (const recipe of gRecipes) {
+      if (
+        recipe.name.toUpperCase().includes(value) ||
+        recipe.description.toUpperCase().includes(value)
+      ) {
+        filteredResearches.push(recipe);
+      }
 
-		for (const ingredient of recipe.ingredients) {
-			if (ingredient.ingredient.includes(value)) {
-				filteredResearches.push(recipe);
-			}
-		}
-	}
-      return filteredResearches;
+      for (const ingredient of recipe.ingredients) {
+        if (ingredient.ingredient.includes(value)) {
+          filteredResearches.push(recipe);
+        }
+      }
+	  }
+    return filteredResearches;
   }
 
   /**
@@ -106,7 +106,8 @@ class Search {
       }
       else{
           const filteredRecipes = this.filterFromSearchBar(search.toUpperCase());
-          this.filterByTag(filteredRecipes);
+          const remainingRecipes = this.filterByTag(filteredRecipes);
+          this.updateFilterAvailableTags(remainingRecipes);
       }
   }
   
