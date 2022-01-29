@@ -6,7 +6,7 @@ class Search {
    * @returns 
    */
   filterFromSearchBar(value) {
-    const x = gRecipes.filter(
+    return gRecipes.filter(
 			(recipe) =>
 				recipe.name.toUpperCase().includes(value) ||
 				recipe.description.toUpperCase().includes(value) ||
@@ -14,8 +14,6 @@ class Search {
 					ingredient.ingredient.toUpperCase().includes(value);
 				})
 		);
-    console.log(x);
-    return x;
   }
 
   /**
@@ -81,6 +79,8 @@ class Search {
         }
       }
     }
+    
+    console.log(availableIngredients);
     //update btns and regenerate
     gFilterButtons[0].referencesInfo = availableIngredients;
     gFilterButtons[1].referencesInfo = availableAppliance;
