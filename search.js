@@ -19,6 +19,7 @@ document.getElementById('searchbar').addEventListener('input', (e) => {
 				displayOneCard(recipe);
 			}
 		}
+    console.log(remainingResearches);
 		Search.prototype.updateFilterAvailableTags(remainingResearches);
 		// No valid answers
 		if (document.getElementById('cards').innerHTML == '') {
