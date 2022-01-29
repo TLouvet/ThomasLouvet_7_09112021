@@ -5,62 +5,62 @@ let gTags = [];
  */
 class Tags {
 
-    /**
-     * Adds sa new tag
-     * GLOBALS : gTags
-     * @param {string} type 
-     * @param {string} name 
-     */
-    addTag(type, name, color){
-        if (!this.isAlreadyIncludedTag(type, name)){
-            gTags.push({ type: type, name: name });
-            this.displayTag(type, name, color)
-        }
-        Search.prototype.defineAvailableFilterTagsAndRecipes();
+  /**
+   * Adds sa new tag
+   * GLOBALS : gTags
+   * @param {string} type 
+   * @param {string} name 
+   */
+  addTag(type, name, color){
+    if (!this.isAlreadyIncludedTag(type, name)){
+      gTags.push({ type: type, name: name });
+      this.displayTag(type, name, color)
     }
+    Search.prototype.defineAvailableFilterTagsAndRecipes();
+  }
 
-    /**
-     * Helper function checking if a tag is in tags array
-     * GLOBALS : gTags
-     * @param {string} type 
-     * @param {string} name 
-     * @returns boolean
-     */
-    isAlreadyIncludedTag(type, name){
-        for (const tag of gTags){
-            if (tag.type == type && tag.name == name){
-                return true;
-            }
-        }
-        return false;
+  /**
+   * Helper function checking if a tag is in tags array
+   * GLOBALS : gTags
+   * @param {string} type 
+   * @param {string} name 
+   * @returns boolean
+   */
+  isAlreadyIncludedTag(type, name){
+    for (const tag of gTags){
+      if (tag.type == type && tag.name == name){
+        return true;
+      }
     }
+    return false;
+  }
 
-    /**
-     * Show Tag on screen
-     * @param {string} tagType 
-     * @param {string} tagName 
-     * @param {string} color 
-     */
-    displayTag(tagType, tagName, color){
-        const filter = document.getElementById(`${tagType}-tags`);
-        const newTag = document.createElement("div");
-        newTag.setAttribute('id', `${tagName}-filter`);
-        newTag.setAttribute('class', `tag__container tag--${color} p-2` )
-        newTag.innerHTML = `<span>${tagName}<span> <button class="tag__quit tag--${color} " onclick="Tags.prototype.removeOneTag('${tagType}', '${tagName}')" > <i class="far fa-times-circle"></i> </button> `;
-        filter.insertBefore(newTag, filter.firstChild);
-    }
+  /**
+   * Show Tag on screen
+   * @param {string} tagType 
+   * @param {string} tagName 
+   * @param {string} color 
+   */
+  displayTag(tagType, tagName, color){
+    const filter = document.getElementById(`${tagType}-tags`);
+    const newTag = document.createElement("div");
+    newTag.setAttribute('id', `${tagName}-filter`);
+    newTag.setAttribute('class', `tag__container tag--${color} p-2` )
+    newTag.innerHTML = `<span>${tagName}<span> <button class="tag__quit tag--${color} " onclick="Tags.prototype.removeOneTag('${tagType}', '${tagName}')" > <i class="far fa-times-circle"></i> </button> `;
+    filter.insertBefore(newTag, filter.firstChild);
+  }
 
-    /**
-     * Remove a tag and update available tags & recipes
-     * GLOBALS: gTag
-     * @param {string} tagType 
-     * @param {string} tagName 
-     */
-    removeOneTag(tagType, tagName){
-        document.getElementById(`${tagName}-filter`).remove();
-        const index = gTags.findIndex(tag => tag.type == tagType && tag.name == tagName);
-        gTags.splice(index,1);
-        collapseFilters();
-        Search.prototype.defineAvailableFilterTagsAndRecipes();
-    }
+  /**
+   * Remove a tag and update available tags & recipes
+   * GLOBALS: gTag
+   * @param {string} tagType 
+   * @param {string} tagName 
+   */
+  removeOneTag(tagType, tagName){
+    document.getElementById(`${tagName}-filter`).remove();
+    const index = gTags.findIndex(tag => tag.type == tagType && tag.name == tagName);
+    gTags.splice(index,1);
+    collapseFilters();
+    Search.prototype.defineAvailableFilterTagsAndRecipes();
+  }
 }
