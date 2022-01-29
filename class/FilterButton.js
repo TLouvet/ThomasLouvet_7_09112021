@@ -13,16 +13,15 @@ class FilterButton {
 	}
 
 	/**
-	 * Original display of a button
+	 * Original display of a button*
+   * MISSING EXPANDED VERSION 
 	 */
 	create() {
 		document.getElementById('filter-section').innerHTML += `
-		<div id="${this.id}-container" class="col-5 col-sm-4 col-md-2 me-3 tag__box">
-			<button type="button" id="${this.id}" class="white btn--no-expand btn--${this.background} btn__filter d-flex justify-content-between">
+			<button type="button" id="${this.id}" class="col-sm-12 col-md-3 col-lg-2 me-3 white btn--no-expand btn--${this.background} btn__filter d-flex justify-content-between">
 				<span> ${this.name} </span>
 				<span><i class="fas fa-chevron-down"></i></span>
 			</button>
-		</div>
 		`;
 	}
 
@@ -31,7 +30,7 @@ class FilterButton {
 	 */
 	regenerate(){
 		document.getElementById(this.isExpanded ? `${this.id}-expanded` : this.id).outerHTML = `
-			<button type="button" id="${this.id}" class="white  btn--no-expand btn--${this.background} btn__filter d-flex justify-content-between">
+			<button type="button" id="${this.id}" class="col-sm-12 col-md-3 col-lg-2 me-3 white btn--no-expand btn--${this.background} btn__filter d-flex justify-content-between">
 				<span> ${this.name} </span>
 				<span><i class="fas fa-chevron-down"></i></span>
 			</button>
@@ -47,8 +46,8 @@ class FilterButton {
 	 */
 	createExpandedVersion(list){
 		return `
-			<div id="${this.id}-expanded" class="col-12 col-sm-6 white btn--${this.background} btn__filter">
-				<div  class=" d-flex justify-content-between mb-3">
+			<div id="${this.id}-expanded" class="col-sm-12 col-md-6 me-3 white btn--${this.background} btn__filter">
+				<div class="d-flex justify-content-between mb-3">
 					<input class="input input--${this.background} me-2" id='${this.id}-input' type="text" placeholder="Rechercher un ${this.name.toLowerCase()}" />
 					<span><i class="fas fa-chevron-up"></i></span>
 				</div>	

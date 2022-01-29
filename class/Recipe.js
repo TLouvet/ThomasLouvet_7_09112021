@@ -1,37 +1,39 @@
-
 /**
  * Recipe container
  */
- let gRecipes = [];
+let gRecipes = [];
 
-class Recipe { 
-
-    /**
-     * Get List of ingredients for one recipe
-     * @param {object} recipe 
-     * @returns 
-     */
-    getIngredientsAsHTMLList(recipe) {
-        let list = '';
-        recipe.ingredients.forEach((ingredient) => {
-            list += `
+class Recipe {
+  /**
+   * Get List of ingredients for one recipe
+   * @param {object} recipe
+   * @returns
+   */
+  getIngredientsAsHTMLList(recipe) {
+    let list = "";
+    recipe.ingredients.forEach((ingredient) => {
+      list += `
                 <li>
                     <span class="bold close">${ingredient.ingredient}</span> 
-                    ${ingredient.quantity != undefined ? `: ${ingredient.quantity}` : ''}
-                    ${ingredient.unit != undefined ? ingredient.unit : ''}
+                    ${
+                      ingredient.quantity != undefined
+                        ? `: ${ingredient.quantity}`
+                        : ""
+                    }
+                    ${ingredient.unit != undefined ? ingredient.unit : ""}
                 </li>
             `;
-        });
-        return list;
-    }
+    });
+    return list;
+  }
 
-    /**
-     * Display single recipe card
-     * @param {object} recipe 
-     * @param {string[]} ingredientList 
-     */
-    addCard(recipe, ingredientList){
-        document.getElementById('cards').innerHTML += `
+  /**
+   * Display single recipe card
+   * @param {object} recipe
+   * @param {string[]} ingredientList
+   */
+  addCard(recipe, ingredientList) {
+    document.getElementById("cards").innerHTML += `
             <article class="recipe__card col-md-6 col-xl-4">
                 <div class="recipe__card__image"></div> 
                 <div class="recipe__card__body">
@@ -52,5 +54,5 @@ class Recipe {
                 </div>
             </article>
         `;
-    }   
+  }
 }

@@ -23,6 +23,28 @@
   background-color: #eb4f3d;
 }
 
+#filter-section {
+  position: absolute;
+  width: 90%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#cards {
+  position: relative;
+  top: 100px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 767px) {
+  #cards {
+    top: 300px;
+  }
+
+  #filter-section {
+    display: block;
+  }
+}
 .main-title {
   color: #D04F4F;
   font-weight: 600;
@@ -143,11 +165,6 @@
 }
 .tag--green {
   background-color: #68D9A4;
-}
-.tag__box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,22 @@
+#filter-section{
+  position: absolute;
+  width: 90%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#cards {
+  position: relative;
+  top: 100px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 767px) {
+  #cards{
+    top: 300px;
+  }
+
+  #filter-section{
+    display: block;
+  }
+}

@@ -32,12 +32,11 @@ class Tags {
                 return true;
             }
         }
-
         return false;
     }
 
     displayTag(tagType, tagName, color){
-        const filter = document.getElementById(`${tagType}-container`);
+        const filter = document.getElementById(`${tagType}-tags`);
         const newTag = document.createElement("div");
         newTag.setAttribute('id', `${tagName}-filter`);
         newTag.setAttribute('class', `tag__container tag--${color}` )

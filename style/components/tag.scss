@@ -19,9 +19,4 @@
     &--green{
         background-color: $green;
     }
-    &__box {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
 }
