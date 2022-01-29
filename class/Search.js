@@ -79,10 +79,9 @@ class Search {
         }
       }
     }
-    
-    console.log(availableIngredients);
     //update btns and regenerate
     gFilterButtons[0].referencesInfo = availableIngredients;
+    console.log(gFilterButtons[0]);
     gFilterButtons[1].referencesInfo = availableAppliance;
     gFilterButtons[2].referencesInfo = availableUstensils;
   }
