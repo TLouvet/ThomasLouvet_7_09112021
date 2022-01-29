@@ -31,7 +31,7 @@ async function reinitFilterButtons(){
 	const baseInfo = await Promise.all([
 		getAllUniqueIngredients(),getAllUniqueAppliances(),getAllUniqueUstensils()
 	])
-
+  
 	for (let i = 0 ; i < gFilterButtons.length; i++){
 		gFilterButtons[i].referencesInfo = baseInfo[i]
 	}

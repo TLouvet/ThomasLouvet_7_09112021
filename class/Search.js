@@ -6,22 +6,15 @@ class Search {
    * @returns 
    */
   filterFromSearchBar(value) {
-      const filteredResearches = [];
-      for (const recipe of gRecipes) {
-		if (
-			recipe.name.toUpperCase().includes(value) ||
-			recipe.description.toUpperCase().includes(value)
-		) {
-			filteredResearches.push(recipe);
-		}
-
-		for (const ingredient of recipe.ingredients) {
-			if (ingredient.ingredient.includes(value)) {
-				filteredResearches.push(recipe);
-			}
-		}
-	}
-      return filteredResearches;
+    const x = gRecipes.filter(
+			(recipe) =>
+				recipe.name.toUpperCase().includes(value) ||
+				recipe.description.toUpperCase().includes(value) ||
+				recipe.ingredients.forEach((ingredient) => {
+					ingredient.ingredient.toUpperCase().includes(value);
+				})
+		);
+    return x;
   }
 
   /**
@@ -66,32 +59,32 @@ class Search {
    * @param {object[]} recipes 
    */
   updateFilterAvailableTags(recipes){
-    const availableIngredients = [];
-    const availableAppliance = [];
-    const availableUstensils = [];
-    for (const recipe of recipes){
-      // Search ingredients and update filter[0]
-      for (const ingredientObj of recipe.ingredients){
-        if(!isIncluded(ingredientObj.ingredient, availableIngredients)){
-          availableIngredients.push(ingredientObj.ingredient);
-        }
-      }
-      // Search Appareils and update filter[1]
-      if (!isIncluded(recipe.appliance, availableAppliance)){
-        availableAppliance.push(recipe.appliance);
-      }			
-      // Search Ustensiles and update filter[2]
-      for (const ustensil of recipe.ustensils){
-        if(!isIncluded(ustensil, availableUstensils)){
-          availableUstensils.push(ustensil);
-        }
-      }
-    }
+	const availableIngredients = [];
+	const availableAppliance = [];
+	const availableUstensils = [];
+	for (const recipe of recipes){
+		// Search ingredients and update filter[0]
+		for (const ingredientObj of recipe.ingredients){
+			if(!isIncluded(ingredientObj.ingredient, availableIngredients)){
+				availableIngredients.push(ingredientObj.ingredient);
+			}
+		}
+		// Search Appareils and update filter[1]
+		if (!isIncluded(recipe.appliance, availableAppliance)){
+			availableAppliance.push(recipe.appliance);
+		}			
+		// Search Ustensiles and update filter[2]
+		for (const ustensil of recipe.ustensils){
+			if(!isIncluded(ustensil, availableUstensils)){
+				availableUstensils.push(ustensil);
+			}
+		}
+	}
 
-    //update btns and regenerate
-    gFilterButtons[0].referencesInfo = availableIngredients;
-    gFilterButtons[1].referencesInfo = availableAppliance;
-    gFilterButtons[2].referencesInfo = availableUstensils;
+	//update btns and regenerate
+	gFilterButtons[0].referencesInfo = availableIngredients;
+	gFilterButtons[1].referencesInfo = availableAppliance;
+	gFilterButtons[2].referencesInfo = availableUstensils;
   }
 
   /**
