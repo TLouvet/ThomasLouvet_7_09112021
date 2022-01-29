@@ -66,32 +66,32 @@ class Search {
    * @param {object[]} recipes 
    */
   updateFilterAvailableTags(recipes){
-	const availableIngredients = [];
-	const availableAppliance = [];
-	const availableUstensils = [];
-	for (const recipe of recipes){
-		// Search ingredients and update filter[0]
-		for (const ingredientObj of recipe.ingredients){
-			if(!isIncluded(ingredientObj.ingredient, availableIngredients)){
-				availableIngredients.push(ingredientObj.ingredient);
-			}
-		}
-		// Search Appareils and update filter[1]
-		if (!isIncluded(recipe.appliance, availableAppliance)){
-			availableAppliance.push(recipe.appliance);
-		}			
-		// Search Ustensiles and update filter[2]
-		for (const ustensil of recipe.ustensils){
-			if(!isIncluded(ustensil, availableUstensils)){
-				availableUstensils.push(ustensil);
-			}
-		}
-	}
+    const availableIngredients = [];
+    const availableAppliance = [];
+    const availableUstensils = [];
+    for (const recipe of recipes){
+      // Search ingredients and update filter[0]
+      for (const ingredientObj of recipe.ingredients){
+        if(!isIncluded(ingredientObj.ingredient, availableIngredients)){
+          availableIngredients.push(ingredientObj.ingredient);
+        }
+      }
+      // Search Appareils and update filter[1]
+      if (!isIncluded(recipe.appliance, availableAppliance)){
+        availableAppliance.push(recipe.appliance);
+      }			
+      // Search Ustensiles and update filter[2]
+      for (const ustensil of recipe.ustensils){
+        if(!isIncluded(ustensil, availableUstensils)){
+          availableUstensils.push(ustensil);
+        }
+      }
+    }
 
-	//update btns and regenerate
-	gFilterButtons[0].referencesInfo = availableIngredients;
-	gFilterButtons[1].referencesInfo = availableAppliance;
-	gFilterButtons[2].referencesInfo = availableUstensils;
+    //update btns and regenerate
+    gFilterButtons[0].referencesInfo = availableIngredients;
+    gFilterButtons[1].referencesInfo = availableAppliance;
+    gFilterButtons[2].referencesInfo = availableUstensils;
   }
 
   /**

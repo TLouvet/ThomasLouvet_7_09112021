@@ -19,5 +19,18 @@
     }
     &--no-expand {
         max-height: 65px;
+        @include desktop-res{
+          width: 210px!important;
+        }
+        @include laptop-res{
+          width: 155px!important;
+        }
+        @include tablet-res{
+          width: 170px!important;
+        }
+        @include mobile-res{
+          max-width: 500px;
+        }
     }
 }
+

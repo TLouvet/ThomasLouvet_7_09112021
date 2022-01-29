@@ -3,20 +3,30 @@
   width: 90%;
   flex-wrap: wrap;
   display: flex;
+  @include mobile-res{
+    display: block;
+  }
+  @include desktop-res{
+    width: 87%;
+  }
+  & > .expanded{
+    @include mobile-res{
+      position: absolute;
+    }
+    @include tablet-res{
+      max-width: 290px;
+    }
+    @include mobile-res{
+      max-width: 500px;
+    }
+  }
 }
 
 #cards {
   position: relative;
   top: 100px;
   z-index: -1;
-}
-
-@media screen and (max-width: 767px) {
-  #cards{
-    top: 300px;
-  }
-
-  #filter-section{
-    display: block;
+  @include mobile-res{
+    top:300px;
   }
 }

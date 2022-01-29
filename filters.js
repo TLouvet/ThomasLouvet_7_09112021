@@ -13,9 +13,9 @@ async function createFilterButtons() {
 	])	
 
 	const filterNames = [
-		new FilterButton('Ingrédients', 'blue', 'ingredients', baseInfo[0]),
-		new FilterButton('Appareil', 'green', 'appareils', baseInfo[1]),
-		new FilterButton('Ustensiles', 'red', 'ustensiles', baseInfo[2]),
+		new FilterButton('Ingrédients', 'blue', 'ingredients', baseInfo[0], "ingrédient"),
+		new FilterButton('Appareil', 'green', 'appareils', baseInfo[1], "appareil"),
+		new FilterButton('Ustensiles', 'red', 'ustensiles', baseInfo[2], "ustensil"),
 	];
 
 	// It seems unlogical, but putting both instructions in a single forEach does not work

@@ -45,7 +45,7 @@ class Tags {
         const filter = document.getElementById(`${tagType}-tags`);
         const newTag = document.createElement("div");
         newTag.setAttribute('id', `${tagName}-filter`);
-        newTag.setAttribute('class', `tag__container tag--${color}` )
+        newTag.setAttribute('class', `tag__container tag--${color} p-2` )
         newTag.innerHTML = `<span>${tagName}<span> <button class="tag__quit tag--${color} " onclick="Tags.prototype.removeOneTag('${tagType}', '${tagName}')" > <i class="far fa-times-circle"></i> </button> `;
         filter.insertBefore(newTag, filter.firstChild);
     }
@@ -60,6 +60,7 @@ class Tags {
         document.getElementById(`${tagName}-filter`).remove();
         const index = gTags.findIndex(tag => tag.type == tagType && tag.name == tagName);
         gTags.splice(index,1);
+        collapseFilters();
         Search.prototype.defineAvailableFilterTagsAndRecipes();
     }
 }
