@@ -1,10 +1,14 @@
+// The aim of this variable is to avoid rerendering unnecessarily when searchbar is < 3 chars
+let is3Char = false;
+
 /**
- * Main searchbar update
+ * Native Loop Version -- seems faster
  */
 document.getElementById('searchbar').addEventListener('input', (e) => {
-	document.getElementById('cards').innerHTML = '';
-
+	
 	if (e.target.value.length >= 3) {
+    document.getElementById('cards').innerHTML = '';
+    is3Char = true;
 		const valueUpper = e.target.value.toUpperCase();
 		// Get first filter
 		const filteredResearches = Search.prototype.filterFromSearchBar(valueUpper);
@@ -30,9 +34,11 @@ document.getElementById('searchbar').addEventListener('input', (e) => {
 			const filteredRecipes = Search.prototype.filterByTag(gRecipes);
 			Search.prototype.updateFilterAvailableTags(filteredRecipes);
 		}
-		else{
+		else if (is3Char){
+      document.getElementById('cards').innerHTML = '';
+      is3Char = false;
 			reinitFilterButtons();
-			displayCards(gRecipes);
+      displayCards(gRecipes);
 		}
 	}
 });
