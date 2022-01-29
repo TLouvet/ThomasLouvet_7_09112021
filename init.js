@@ -10,7 +10,7 @@
  getAllRecipes()
  .then(rec => {
      gRecipes = rec.recipes;
-     displayCards(rec.recipes)
+     displayCards(rec.recipes);
     })
  .catch();
 

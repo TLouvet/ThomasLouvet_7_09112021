@@ -2,7 +2,7 @@
 let is3Char = false;
 
 /**
- * Native Loop Version -- seems faster
+ * Native Loop Version
  */
 document.getElementById('searchbar').addEventListener('input', (e) => {
 	
@@ -12,7 +12,7 @@ document.getElementById('searchbar').addEventListener('input', (e) => {
 		const valueUpper = e.target.value.toUpperCase();
 		// Get first filter
 		const filteredResearches = Search.prototype.filterFromSearchBar(valueUpper);
-		// Filter by Tag
+		// Filter by Tag 
 		let remainingResearches = [];
 		if (gTags.length > 0){
 			remainingResearches = Search.prototype.filterByTag(filteredResearches);
