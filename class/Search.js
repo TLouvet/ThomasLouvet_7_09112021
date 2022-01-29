@@ -80,10 +80,9 @@ class Search {
       }
     }
     //update btns and regenerate
-    gFilterButtons[0].referencesInfo = availableIngredients;
-    console.log(gFilterButtons[0]);
-    gFilterButtons[1].referencesInfo = availableAppliance;
-    gFilterButtons[2].referencesInfo = availableUstensils;
+    gFilterButtons[0].setReferences(availableIngredients);
+    gFilterButtons[1].setReferences(availableAppliance);
+    gFilterButtons[2].setReferences(availableUstensils);
   }
 
   /**
@@ -93,16 +92,16 @@ class Search {
       const search = document.getElementById("searchbar").value;
       document.getElementById('cards').innerHTML = '';
       if (search.length < 3){ 
-          const x = this.filterByTag(gRecipes);
-          this.updateFilterAvailableTags(x);
+        const x = this.filterByTag(gRecipes);
+        this.updateFilterAvailableTags(x);
       }
       else{
-          const filteredRecipes = this.filterFromSearchBar(search.toUpperCase());
-          this.filterByTag(filteredRecipes);
+        const filteredRecipes = this.filterFromSearchBar(search.toUpperCase());
+        const remainingRecipes = this.filterByTag(filteredRecipes);
+        this.updateFilterAvailableTags(remainingRecipes);
       }
   }
   
-
   /**
    * Helper function to find ingredient in a recipe 
    * @param {object[]} ingredients 

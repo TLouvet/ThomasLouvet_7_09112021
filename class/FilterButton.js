@@ -131,5 +131,8 @@ class FilterButton {
 			}
 		});
 	}
-
+  
+  setReferences(ref){
+    this.referencesInfo = ref;
+  }
 }
