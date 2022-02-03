@@ -30,7 +30,9 @@ document.getElementById('searchbar').addEventListener('input', (e) => {
 		}
 	} 
 	else {
-		if (gTags.length > 0){
+		if (gTags.length > 0 && is3Char){
+      document.getElementById('cards').innerHTML = '';
+      is3Char = false;
 			const filteredRecipes = Search.prototype.filterByTag(gRecipes);
 			Search.prototype.updateFilterAvailableTags(filteredRecipes);
 		}
