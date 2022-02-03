@@ -31,6 +31,7 @@ document.getElementById('searchbar').addEventListener('input', (e) => {
 	} 
 	else {
 		if (gTags.length > 0){
+      document.getElementById('cards').innerHTML = '';
 			const filteredRecipes = Search.prototype.filterByTag(gRecipes);
 			Search.prototype.updateFilterAvailableTags(filteredRecipes);
 		}
